@@ -1,0 +1,10 @@
+logger:
+  level: info
+
+port: 8080
+metrics_port: 9090
+
+balance_getter:
+  data_sources:
+    - "https://mainnet.infura.io/v3/7b2e9cd2eb6849489b2a89c89c0d00c1"
+    - "https://eth-mainnet.g.alchemy.com/v2/-CetKTI-BHrJzvFWGGaVuX4tbh0-dLIV"

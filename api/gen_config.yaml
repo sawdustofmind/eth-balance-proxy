@@ -1,0 +1,10 @@
+package: server
+generate:
+  models: true
+  gin-server: true
+  embedded-spec: true
+output: internal/server/openapi.oapi_gen.go
+output-options:
+  skip-prune: true
+  include-tags:
+    - public-api

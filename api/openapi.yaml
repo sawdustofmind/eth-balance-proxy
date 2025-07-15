@@ -1,0 +1,58 @@
+openapi: '3.0.2'
+info:
+  title: Eth Balance Proxy API
+  version: '1.0'
+  description: |
+    Ethereum Balance Proxy API
+
+servers:
+  - url: 'https://localhost:8080/'
+    description: Local price server
+
+tags:
+  - name: 'public-api'
+    description: 'Public API'
+
+paths:
+  ### PUBLIC API
+
+  /docs:
+    get:
+      tags:
+        - public-api
+      responses:
+        '200':
+          description: OK
+
+  /eth/balance/{address}:
+    get:
+      parameters:
+        - name: address
+          in: path
+          required: true
+          schema:
+            type: string
+            format: address
+      tags:
+        - public-api
+      summary: Get Eth Balance
+      description: |
+        Retrieve the Ethereum balance for a given address.
+      responses:
+        '200':
+          description: Successfully retrieved balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Balance'
+
+components:
+  schemas:
+    Balance:
+      type: object
+      properties:
+        balance:
+          type: string
+          format: number
+      required:
+        - balance
